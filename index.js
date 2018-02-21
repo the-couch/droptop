@@ -41,15 +41,15 @@ export default function drop (select) {
     i++
   }
 
-  const button = h('button', { class: 'drop-button' }, [ h(opts[0].label) ])
+  const button = h('button', { class: 'droptop-button' }, [ h(opts[0].label) ])
   const options = opts.map(opt => {
-    return h('button', { class: 'drop__opt' }, [ h(opt.label) ])
+    return h('button', { class: 'droptop__option' }, [ h(opt.label) ])
   })
   const dropdown = h('div', {
-    class: 'drop',
+    class: 'droptop',
     'aria-hidden': true
   }, [
-    h('div', { class: 'drop__inner' }, options)
+    h('div', { class: 'droptop__inner' }, options)
   ])
 
   function toggle () {
