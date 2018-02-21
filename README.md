@@ -9,7 +9,9 @@ npm i droptop --save
 
 # Usage
 ```javascript
-drop(document.getElementById('select'))
+import droptop from 'droptop'
+
+droptop(document.getElementById('select'))
 ```
 ## Styles
 You'll want to start with something like this:
