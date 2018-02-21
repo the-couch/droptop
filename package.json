@@ -1,0 +1,35 @@
+{
+  "name": "droptop",
+  "version": "0.0.1",
+  "description": "Tiny, zero-config, accessible replacement for native select inputs.",
+  "source": "index.js",
+  "module": "dist/droptop.es.js",
+  "main": "dist/droptop.js",
+  "umd:main": "dist/droptop.umd.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "microbundle build",
+    "watch": "microbundle watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/estrattonbailey/droptop.git"
+  },
+  "keywords": [
+    "instagram"
+  ],
+  "author": "estrattonbailey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/estrattonbailey/droptop/issues"
+  },
+  "homepage": "https://github.com/estrattonbailey/droptop#readme",
+  "devDependencies": {
+    "microbundle": "^0.4.3"
+  },
+  "dependencies": {
+    "tackjs": "^1.0.0"
+  }
+}
