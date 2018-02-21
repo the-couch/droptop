@@ -110,10 +110,8 @@ export default function drop (select) {
     selectedIndex = e.target.selectedIndex
     button.innerHTML = options[selectedIndex].innerHTML
   }
-  select.onmouseenter = disableScroll
-  select.onmouseleave = enableScroll
-  button.onmouseenter = disableScroll
-  button.onmouseleave = enableScroll
+  dropdown.onmouseenter = disableScroll
+  dropdown.onmouseleave = enableScroll
   button.onclick = toggle
 
   document.addEventListener('click', e => {
