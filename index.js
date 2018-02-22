@@ -59,19 +59,15 @@ export default function drop (select) {
   }
   function open () {
     if (!active) {
+      active = true
       document.body.appendChild(dropdown)
-      const attachment = (window.innerHeight - button.getBoundingClientRect().bottom) < dropdown.clientHeight ? 'top' : 'bottom'
       dropdown.setAttribute('aria-hidden', false)
       dropdown.setAttribute('tabindex', 0)
-      dropdown.classList.add(attachment)
-      tack(
-        dropdown,
-        button,
-        (window.innerHeight - button.getBoundingClientRect().bottom) < dropdown.clientHeight ? 'top' : 'bottom'
-      )
+      const attachment = (window.innerHeight - button.getBoundingClientRect().bottom) < dropdown.clientHeight ? 'top' : 'bottom'
+      dropdown.classList.add(`droptop-${attachment}`)
+      tack(dropdown, button, attachment)
       focusNode = document.activeElement
       options[selectedIndex].focus()
-      active = true
       setTimeout(() => {
         dropdown.classList.add('active')
       }, 0)
@@ -79,16 +75,18 @@ export default function drop (select) {
   }
   function close () {
     if (active) {
-      dropdown.classList.add('hiding')
       active = false
       enableScroll()
+      dropdown.classList.add('hiding')
       focusNode && focusNode.focus()
-      dropdown.setAttribute('aria-hidden', true)
-      dropdown.removeAttribute('tabindex')
       setTimeout(() => {
+        dropdown.setAttribute('aria-hidden', true)
+        dropdown.removeAttribute('tabindex')
         document.body.removeChild(dropdown)
         dropdown.classList.remove('active')
         dropdown.classList.remove('hiding')
+        dropdown.classList.remove(`droptop-top`)
+        dropdown.classList.remove(`droptop-bottom`)
       }, transitionDelay)
     }
   }

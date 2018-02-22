@@ -1,6 +1,6 @@
 # droptop
 Tiny, zero-config, accessible replacement for native select inputs. Falls back
-to native for mobile browsers. **1.4kb gzipped.**
+to native for mobile browsers. **1.6kb gzipped.**
 
 ## Install
 ```bash
