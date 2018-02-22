@@ -52,32 +52,44 @@ export default function drop (select) {
     h('div', { class: 'droptop__inner' }, options)
   ])
 
+  const transitionDelay = parseFloat(window.getComputedStyle(dropdown).getPropertyValue('transition-duration'), 10) * 1000
+
   function toggle () {
     active ? close() : open()
   }
   function open () {
     if (!active) {
       document.body.appendChild(dropdown)
+      const attachment = (window.innerHeight - button.getBoundingClientRect().bottom) < dropdown.clientHeight ? 'top' : 'bottom'
       dropdown.setAttribute('aria-hidden', false)
       dropdown.setAttribute('tabindex', 0)
-      focusNode = document.activeElement
+      dropdown.classList.add(attachment)
       tack(
         dropdown,
         button,
         (window.innerHeight - button.getBoundingClientRect().bottom) < dropdown.clientHeight ? 'top' : 'bottom'
       )
+      focusNode = document.activeElement
       options[selectedIndex].focus()
       active = true
+      setTimeout(() => {
+        dropdown.classList.add('active')
+      }, 0)
     }
   }
   function close () {
     if (active) {
-      document.body.removeChild(dropdown),
+      dropdown.classList.add('hiding')
       active = false
       enableScroll()
       focusNode && focusNode.focus()
       dropdown.setAttribute('aria-hidden', true)
       dropdown.removeAttribute('tabindex')
+      setTimeout(() => {
+        document.body.removeChild(dropdown)
+        dropdown.classList.remove('active')
+        dropdown.classList.remove('hiding')
+      }, transitionDelay)
     }
   }
   function selectOption (cb) {
