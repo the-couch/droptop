@@ -61,7 +61,11 @@ export default function drop (select) {
       dropdown.setAttribute('aria-hidden', false)
       dropdown.setAttribute('tabindex', 0)
       focusNode = document.activeElement
-      tack(dropdown, button, 'bottom')
+      tack(
+        dropdown,
+        button,
+        (window.innerHeight - button.getBoundingClientRect().bottom) < dropdown.clientHeight ? 'top' : 'bottom'
+      )
       options[selectedIndex].focus()
       active = true
     }
