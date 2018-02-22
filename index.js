@@ -64,7 +64,7 @@ export default function drop (select) {
       dropdown.setAttribute('aria-hidden', false)
       dropdown.setAttribute('tabindex', 0)
       const attachment = (window.innerHeight - button.getBoundingClientRect().bottom) < dropdown.clientHeight ? 'top' : 'bottom'
-      dropdown.classList.add(`droptop-${attachment}`)
+      dropdown.classList.add(`droptop--${attachment}`)
       tack(dropdown, button, attachment)
       focusNode = document.activeElement
       options[selectedIndex].focus()
@@ -85,8 +85,8 @@ export default function drop (select) {
         document.body.removeChild(dropdown)
         dropdown.classList.remove('active')
         dropdown.classList.remove('hiding')
-        dropdown.classList.remove(`droptop-top`)
-        dropdown.classList.remove(`droptop-bottom`)
+        dropdown.classList.remove(`droptop--top`)
+        dropdown.classList.remove(`droptop--bottom`)
       }, transitionDelay)
     }
   }
