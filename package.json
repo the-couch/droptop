@@ -1,6 +1,6 @@
 {
   "name": "droptop",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Tiny, zero-config, accessible replacement for native select inputs.",
   "source": "index.js",
   "module": "dist/droptop.es.js",
