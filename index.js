@@ -122,7 +122,7 @@ export default function drop (select) {
     document.body.style.overflow = ''
   }
 
-  select.onchange = function () {
+  select.onchange = function (e) {
     selectedIndex = e.target.selectedIndex
     button.innerHTML = options[selectedIndex].innerHTML
   }
